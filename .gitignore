@@ -1,0 +1,7 @@
+# Xcode
+*.xcodeproj/**
+!*.xcodeproj/project.pbxproj
+
+# Files
+.DS_Store
+
