@@ -1,5 +1,16 @@
 # CryptoStalker
-The CryptoStalker can track balances of your wallets.
+CryptoStalker can track balances of your wallets.
+
+## Settings
+- Currency
+    - CZK, EUR, USD
+- Update Frequency
+    - every [1, 5, 15, 30, 60] minutes
+
+## Screenshots
+![](https://i.imgur.com/yPvbr6G.png)
+![](https://i.imgur.com/bX3E7DG.png)
+![](https://i.imgur.com/KW2WAUi.png)
 
 ## License
 ```
