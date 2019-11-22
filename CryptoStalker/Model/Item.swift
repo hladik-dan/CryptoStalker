@@ -39,6 +39,8 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
             return "Bitcoin"
         case .ETH:
             return "Ethereum"
+        case .LTC:
+            return "Litecoin"
         }
     }
     
