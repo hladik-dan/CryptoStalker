@@ -44,7 +44,7 @@ class CoinMarketCapService {
     
     private func decodeBalance(cryptocurrency: Cryptourrency, balance: String) -> Double? {
         switch cryptocurrency {
-        case .BTC:
+        case .BTC, .LTC:
             guard let balance = Double(balance) else {
                 return nil
             }

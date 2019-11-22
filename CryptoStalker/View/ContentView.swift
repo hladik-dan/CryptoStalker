@@ -39,6 +39,10 @@ struct ContentView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .tag(Cryptourrency.ETH)
+                    Image("Litecoin")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .tag(Cryptourrency.LTC)
                 }
                 .labelsHidden()
                 .frame(width: 50)
@@ -55,21 +59,23 @@ struct ContentView: View {
                 
                 Button("+",
                        action: {
-                        if self.name.count < 1 || self.address.count < 1 {
-                            return
-                        }
-                        
-                        let item = Item(cryptocurrency: self.cryptocurrency,
-                                        name: self.name,
-                                        address: self.address)
-                        self.itemsViewModel.addItem(item: item)
-                        
-                        self.name = ""
-                        self.address = ""
+                    if self.name.count < 1 || self.address.count < 1 {
+                        return
+                    }
+                    
+                    let item = Item(cryptocurrency: self.cryptocurrency,
+                                    name: self.name,
+                                    address: self.address)
+                    self.itemsViewModel.addItem(item: item)
+                    
+                    self.name = ""
+                    self.address = ""
                 })
                 
                 Button("Settings",
-                       action: { self.showSettings.toggle() })
+                       action: {
+                    self.showSettings.toggle()
+                })
             }
             .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 5))
 
@@ -117,9 +123,12 @@ struct ContentView_Previews: PreviewProvider {
         let item2 = Item(cryptocurrency: .ETH,
                          name: "Ethereum",
                          address: "Ethereum Address")
+        let item3 = Item(cryptocurrency: .LTC,
+                         name: "Litecoin",
+                         address: "Litecoin Address")
         
         let itemsViewModel = ItemsViewModel(statusBarButton: NSStatusBarButton())
-        itemsViewModel.items = [item1, item2]
+        itemsViewModel.items = [item1, item2, item3]
 
         return itemsViewModel
     }

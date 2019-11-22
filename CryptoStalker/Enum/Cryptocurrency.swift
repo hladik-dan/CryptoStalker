@@ -17,4 +17,5 @@
 enum Cryptourrency: String, Codable {
     case BTC
     case ETH
+    case LTC
 }
