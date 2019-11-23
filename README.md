@@ -1,9 +1,12 @@
 # CryptoStalker
 CryptoStalker can track balances of your wallets.
 
+## Download
+CryptoStalker can be downloaded from [**Releases**](https://github.com/hladik-dan/CryptoStalker/releases) section.
+
 ## Settings
 - Currency
-    - CZK, EUR, USD
+    - CZK, EUR, GBP, USD
 - Update Frequency
     - every [1, 5, 15, 30, 60] minutes
 
