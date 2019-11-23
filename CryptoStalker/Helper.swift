@@ -38,6 +38,8 @@ class Helper {
             return Locale(identifier: "cs_CZ")
         case .EUR:
             return Locale(identifier: "de_DE")
+        case .GBP:
+            return Locale(identifier: "en_GB")
         case .USD:
             return Locale(identifier: "en_US")
         }
