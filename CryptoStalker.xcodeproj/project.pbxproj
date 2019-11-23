@@ -20,6 +20,7 @@
 		7387D0E82380545B007D4B18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7387D0E72380545B007D4B18 /* Assets.xcassets */; };
 		7387D0EB2380545B007D4B18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7387D0EA2380545B007D4B18 /* Preview Assets.xcassets */; };
 		7387D0EE2380545B007D4B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7387D0EC2380545B007D4B18 /* Main.storyboard */; };
+		738C0D8223897CF5001BF8A6 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C0D8123897CF5001BF8A6 /* AddItemView.swift */; };
 		738F50B723892D2C001B42D4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F50B623892D2C001B42D4 /* Helper.swift */; };
 		73E56A9B23874DD400FC951C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56A9A23874DD400FC951C /* SettingView.swift */; };
 		73ECE3852385F76300A8DD2E /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ECE3842385F76300A8DD2E /* PreferencesViewModel.swift */; };
@@ -42,6 +43,7 @@
 		7387D0ED2380545B007D4B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7387D0EF2380545B007D4B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7387D0F02380545B007D4B18 /* CryptoStalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoStalker.entitlements; sourceTree = "<group>"; };
+		738C0D8123897CF5001BF8A6 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		738F50B623892D2C001B42D4 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		73E56A9A23874DD400FC951C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		73ECE3842385F76300A8DD2E /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				7387D0E523805459007D4B18 /* ContentView.swift */,
+				738C0D8123897CF5001BF8A6 /* AddItemView.swift */,
 				7356DA3023833A4B002A5BE9 /* ItemView.swift */,
 				73E56A9A23874DD400FC951C /* SettingView.swift */,
 			);
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738C0D8223897CF5001BF8A6 /* AddItemView.swift in Sources */,
 				7356DA2223830779002A5BE9 /* Cryptocurrency.swift in Sources */,
 				7356DA20238306AD002A5BE9 /* CoinMarketCapService.swift in Sources */,
 				7387D0E623805459007D4B18 /* ContentView.swift in Sources */,
