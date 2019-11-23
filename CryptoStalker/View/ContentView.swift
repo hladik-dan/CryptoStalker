@@ -29,48 +29,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                Picker("Cryptocurrency",
-                       selection: self.$cryptocurrency) {
-                    Image("Bitcoin")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .tag(Cryptourrency.BTC)
-                    Image("Ethereum")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .tag(Cryptourrency.ETH)
-                    Image("Litecoin")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .tag(Cryptourrency.LTC)
-                }
-                .labelsHidden()
-                .frame(width: 50)
-                
-                TextField("Name",
-                          text: self.$name)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 100)
-
-                TextField("Address",
-                          text: self.$address)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 150)
-                
-                Button("+",
-                       action: {
-                    if self.name.count < 1 || self.address.count < 1 {
-                        return
-                    }
-                    
-                    let item = Item(cryptocurrency: self.cryptocurrency,
-                                    name: self.name,
-                                    address: self.address)
-                    self.itemsViewModel.addItem(item: item)
-                    
-                    self.name = ""
-                    self.address = ""
-                })
+                AddItemView()
                 
                 Button("Settings",
                        action: {
