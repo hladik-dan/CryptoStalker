@@ -53,7 +53,7 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
     }
     
     var value: String {
-        return String(format: "%.2f \(Preferences.currency)", self._value ?? 0)
+        return Helper.formatCurrency(value: self._value ?? 0)
     }
     
     init(cryptocurrency: Cryptourrency, name: String, address: String) {

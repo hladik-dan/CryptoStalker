@@ -38,7 +38,7 @@ class ItemsViewModel: ObservableObject {
             
             let title = NSMutableAttributedString()
             title.append(NSAttributedString(string: balance, attributes: [ .foregroundColor : color ]))
-            title.append(NSAttributedString(string: String(format: "%.2f \(Preferences.currency)", newValue)))
+            title.append(NSAttributedString(string: Helper.formatCurrency(value: newValue)))
             
             self.statusBarButton.attributedTitle = title
         }

@@ -20,6 +20,7 @@
 		7387D0E82380545B007D4B18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7387D0E72380545B007D4B18 /* Assets.xcassets */; };
 		7387D0EB2380545B007D4B18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7387D0EA2380545B007D4B18 /* Preview Assets.xcassets */; };
 		7387D0EE2380545B007D4B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7387D0EC2380545B007D4B18 /* Main.storyboard */; };
+		738F50B723892D2C001B42D4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F50B623892D2C001B42D4 /* Helper.swift */; };
 		73E56A9B23874DD400FC951C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56A9A23874DD400FC951C /* SettingView.swift */; };
 		73ECE3852385F76300A8DD2E /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ECE3842385F76300A8DD2E /* PreferencesViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		7387D0ED2380545B007D4B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7387D0EF2380545B007D4B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7387D0F02380545B007D4B18 /* CryptoStalker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoStalker.entitlements; sourceTree = "<group>"; };
+		738F50B623892D2C001B42D4 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		73E56A9A23874DD400FC951C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		73ECE3842385F76300A8DD2E /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				7356DA2A238330D6002A5BE9 /* Model */,
 				7356DA29238330CE002A5BE9 /* View */,
 				7387D0E323805459007D4B18 /* AppDelegate.swift */,
+				738F50B623892D2C001B42D4 /* Helper.swift */,
 				735F595B23846CF8009D4829 /* Preferences.swift */,
 				7387D0E72380545B007D4B18 /* Assets.xcassets */,
 				7387D0EC2380545B007D4B18 /* Main.storyboard */,
@@ -225,6 +228,7 @@
 				73ECE3852385F76300A8DD2E /* PreferencesViewModel.swift in Sources */,
 				7387D0E423805459007D4B18 /* AppDelegate.swift in Sources */,
 				73E56A9B23874DD400FC951C /* SettingView.swift in Sources */,
+				738F50B723892D2C001B42D4 /* Helper.swift in Sources */,
 				735F595E23846E25009D4829 /* Currency.swift in Sources */,
 				735F595C23846CF8009D4829 /* Preferences.swift in Sources */,
 			);
