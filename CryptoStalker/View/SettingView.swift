@@ -22,30 +22,34 @@ struct SettingView: View {
     var body: some View {
         VStack {
             HStack {
-                Picker("UpdateFrequency",
+                Text("Currency")
+                    .frame(minWidth: 0, maxWidth: 150, alignment: .leading)
+                
+                Picker("Currency",
                        selection: self.$preferencesViewModel.currency) {
                         Text("CZK").tag(Currency.CZK)
                         Text("EUR").tag(Currency.EUR)
                         Text("GBP").tag(Currency.GBP)
                         Text("USD").tag(Currency.USD)
                 }
-                .pickerStyle(SegmentedPickerStyle())
                 .labelsHidden()
-                .frame(width: 350)
+                .frame(width: 250)
             }
             
             HStack {
+                Text("Update Frequency")
+                    .frame(minWidth: 0, maxWidth: 150, alignment: .leading)
+                
                 Picker("UpdateFrequency",
                        selection: self.$preferencesViewModel.updateFrequency) {
-                        Text("1").tag(1)
-                        Text("5").tag(5)
-                        Text("15").tag(15)
-                        Text("30").tag(30)
-                        Text("60").tag(60)
+                        Text("1 min").tag(1)
+                        Text("5 min").tag(5)
+                        Text("15 min").tag(15)
+                        Text("30 min").tag(30)
+                        Text("1 hour").tag(60)
                 }
-                .pickerStyle(SegmentedPickerStyle())
                 .labelsHidden()
-                .frame(width: 350)
+                .frame(width: 250)
             }
         }
     }
