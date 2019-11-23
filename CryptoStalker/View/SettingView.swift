@@ -25,8 +25,8 @@ struct SettingView: View {
                 Picker("UpdateFrequency",
                        selection: self.$preferencesViewModel.currency) {
                         Text("CZK").tag(Currency.CZK)
-                        Text("GBP").tag(Currency.GBP)
                         Text("EUR").tag(Currency.EUR)
+                        Text("GBP").tag(Currency.GBP)
                         Text("USD").tag(Currency.USD)
                 }
                 .pickerStyle(SegmentedPickerStyle())
