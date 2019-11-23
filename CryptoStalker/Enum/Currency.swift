@@ -19,5 +19,6 @@ import Foundation
 enum Currency: String, Codable {
     case CZK
     case EUR
+    case GBP
     case USD
 }
