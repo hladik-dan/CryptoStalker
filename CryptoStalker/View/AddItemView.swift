@@ -44,6 +44,10 @@ struct AddItemView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .tag(Cryptourrency.LTC)
+                    Image("Stellar")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .tag(Cryptourrency.XLM)
                 }
                 .labelsHidden()
                 .frame(width: 50)

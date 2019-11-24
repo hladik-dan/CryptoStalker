@@ -41,6 +41,8 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
             return "Ethereum"
         case .LTC:
             return "Litecoin"
+        case .XLM:
+            return "Stellar"
         }
     }
     
@@ -85,7 +87,7 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
     func update(dispatchGroup: DispatchGroup) {
         dispatchGroup.enter()
         
-        CoinMarketCapService().getBalance(cryptocurrency: self._cryptocurrency, address: self._address) { balance in
+        WalletInfoService().getBalance(cryptocurrency: self._cryptocurrency, address: self._address) { balance in
             DispatchQueue.main.async {
                 self._balance = balance
             }

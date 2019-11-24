@@ -16,9 +16,18 @@
 
 import Foundation
 
-class CoinMarketCapService {
-    private struct Response: Codable {
+class WalletInfoService {
+    private struct CoinMarketCapResponse: Codable {
         let balance: String
+    }
+    
+    private struct StellarResponse: Codable {
+        let balances: [StellarBalancesResponse]
+    }
+    
+    private struct StellarBalancesResponse: Codable {
+        let balance: String
+        let asset_type: String
     }
     
     func getBalance(cryptocurrency: Cryptourrency, address: String, completion: @escaping (Double?) -> ()) {
@@ -30,26 +39,43 @@ class CoinMarketCapService {
                 return
             }
             
-            guard let response = try? JSONDecoder().decode(Response.self, from: data) else {
+            guard let responseBalance = self.getResponseBalance(cryptocurrency: cryptocurrency, data: data) else {
                 completion(nil)
                 return
             }
             
             
-            let balance = self.decodeBalance(cryptocurrency: cryptocurrency, balance: response.balance)
+            let balance = self.decodeBalance(cryptocurrency: cryptocurrency, balance: responseBalance)
             
             completion(balance)
         }.resume()
     }
     
-    private func decodeBalance(cryptocurrency: Cryptourrency, balance: String) -> Double? {
+    private func getResponseBalance(cryptocurrency: Cryptourrency, data: Data) -> String? {
         switch cryptocurrency {
-        case .BTC, .LTC:
-            guard let balance = Double(balance) else {
+        case .BTC, .ETH, .LTC:
+            guard let response = try? JSONDecoder().decode(CoinMarketCapResponse.self, from: data) else {
                 return nil
             }
             
-            return balance / 100000000
+            return response.balance
+        case .XLM:
+            guard let response = try? JSONDecoder().decode(StellarResponse.self, from: data) else {
+                return nil
+            }
+            
+            return response.balances.first(where: { $0.asset_type == "native" })?.balance
+        }
+    }
+    
+    private func decodeBalance(cryptocurrency: Cryptourrency, balance: String) -> Double? {
+        switch cryptocurrency {
+        case .BTC, .LTC:
+            guard let balance = Int(balance) else {
+                return nil
+            }
+            
+            return Double(balance) / 100000000
         case .ETH:
             let startIndex = balance.index(balance.startIndex, offsetBy: 2)
             let endIndex = balance.endIndex
@@ -60,10 +86,21 @@ class CoinMarketCapService {
             }
             
             return Double(balance) / 1000000000000000000
+        case .XLM:
+            guard let balance = Double(balance) else {
+                return nil
+            }
+            
+            return balance
         }
     }
     
     private func getUrl(cryptocurrency: Cryptourrency, address: String) -> URL {
-        return URL(string: "https://blockchain.coinmarketcap.com/api/address?address=\(address)&symbol=\(cryptocurrency)")!
+        switch cryptocurrency {
+        case .BTC, .ETH, .LTC:
+            return URL(string: "https://blockchain.coinmarketcap.com/api/address?address=\(address)&symbol=\(cryptocurrency)")!
+        case .XLM:
+            return URL(string: "https://horizon.stellar.org/accounts/\(address)")!
+        }
     }
 }

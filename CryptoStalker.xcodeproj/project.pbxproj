@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7356DA20238306AD002A5BE9 /* CoinMarketCapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356DA1F238306AD002A5BE9 /* CoinMarketCapService.swift */; };
+		7356DA20238306AD002A5BE9 /* WalletInfoServiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356DA1F238306AD002A5BE9 /* WalletInfoServiceService.swift */; };
 		7356DA2223830779002A5BE9 /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356DA2123830779002A5BE9 /* Cryptocurrency.swift */; };
 		7356DA2423830A92002A5BE9 /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356DA2323830A92002A5BE9 /* ItemsViewModel.swift */; };
 		7356DA2D2383310D002A5BE9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356DA2C2383310D002A5BE9 /* Item.swift */; };
@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7356DA1F238306AD002A5BE9 /* CoinMarketCapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapService.swift; sourceTree = "<group>"; };
+		7356DA1F238306AD002A5BE9 /* WalletInfoServiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInfoServiceService.swift; sourceTree = "<group>"; };
 		7356DA2123830779002A5BE9 /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		7356DA2323830A92002A5BE9 /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
 		7356DA2C2383310D002A5BE9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		7356DA2E2383315D002A5BE9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7356DA1F238306AD002A5BE9 /* CoinMarketCapService.swift */,
+				7356DA1F238306AD002A5BE9 /* WalletInfoServiceService.swift */,
 				7356DA3223833C8F002A5BE9 /* CoinbaseService.swift */,
 			);
 			path = Services;
@@ -223,7 +223,7 @@
 			files = (
 				738C0D8223897CF5001BF8A6 /* AddItemView.swift in Sources */,
 				7356DA2223830779002A5BE9 /* Cryptocurrency.swift in Sources */,
-				7356DA20238306AD002A5BE9 /* CoinMarketCapService.swift in Sources */,
+				7356DA20238306AD002A5BE9 /* WalletInfoServiceService.swift in Sources */,
 				7387D0E623805459007D4B18 /* ContentView.swift in Sources */,
 				7356DA2423830A92002A5BE9 /* ItemsViewModel.swift in Sources */,
 				7356DA3123833A4B002A5BE9 /* ItemView.swift in Sources */,
