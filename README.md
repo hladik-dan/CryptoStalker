@@ -11,9 +11,16 @@ CryptoStalker can be downloaded from [**Releases**](https://github.com/hladik-da
     - every [1, 5, 15, 30, 60] minutes
 
 ## Screenshots
-![](https://i.imgur.com/yPvbr6G.png)
-![](https://i.imgur.com/bX3E7DG.png)
-![](https://i.imgur.com/KW2WAUi.png)
+![](https://i.imgur.com/fVWFpQH.png)
+![](https://i.imgur.com/3vqwqFK.png)
+
+## Data Sources
+Data for wallet balances are fetched from
+- https://blockchain.coinmarketcap.com/
+- https://horizon.stellar.org/
+
+Data for exchanges rates are fetched from
+- https://api.coinbase.com/
 
 ## License
 ```
