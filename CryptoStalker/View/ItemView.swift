@@ -39,6 +39,34 @@ struct ItemView: View {
                 NSPasteboard.general.clearContents()
                 NSPasteboard.general.setString(self.item.address, forType: .string)
             })
+            
+            Divider()
+            
+            Button("Move up", action: {
+                guard let index = self.itemsViewModel.items.firstIndex(of: self.item) else {
+                    return
+                }
+                
+                if index == 0 {
+                    return
+                }
+
+                self.itemsViewModel.items.swapAt(index, index - 1)
+            })
+            Button("Move down", action: {
+                guard let index = self.itemsViewModel.items.firstIndex(of: self.item) else {
+                    return
+                }
+                
+                if index == (self.itemsViewModel.items.count - 1) {
+                    return
+                }
+
+                self.itemsViewModel.items.swapAt(index, index + 1)
+            })
+
+            Divider()
+
             Button("Delete", action: {
                 self.itemsViewModel.deleteItem(item: self.item)
             })
