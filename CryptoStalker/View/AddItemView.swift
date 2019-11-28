@@ -18,15 +18,15 @@ import SwiftUI
 
 struct AddItemView: View {
     @EnvironmentObject var itemsViewModel: ItemsViewModel
-    
+
     @State var cryptocurrency: Cryptourrency = .BTC
     @State var name: String = ""
     @State var address: String = ""
-    
+
     @State var addButtonText: String = "+"
-    
+
     @State var showForm: Bool = false
-    
+
     var body: some View {
         HStack {
             if self.showForm {
@@ -51,7 +51,7 @@ struct AddItemView: View {
                 }
                 .labelsHidden()
                 .frame(width: 50)
-                
+
                 TextField("Name", text: self.$name, onEditingChanged: nameTextFieldChanged)
                     .multilineTextAlignment(.center)
                     .frame(width: 100)
@@ -60,12 +60,12 @@ struct AddItemView: View {
                     .multilineTextAlignment(.center)
                     .frame(width: 150)
             }
-            
+
             Button(self.addButtonText, action: addButtonAction)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         }
     }
-    
+
     func nameTextFieldChanged(_: Bool) {
         if self.name.isEmpty && self.address.isEmpty {
             self.addButtonText = "-"
@@ -73,7 +73,7 @@ struct AddItemView: View {
             self.addButtonText = "+"
         }
     }
-    
+
     func addressTextFieldChanged(_: Bool) {
         if self.name.isEmpty && self.address.isEmpty {
             self.addButtonText = "-"
@@ -81,25 +81,25 @@ struct AddItemView: View {
             self.addButtonText = "+"
         }
     }
-    
+
     func addButtonAction() {
         if !self.showForm {
             self.showForm.toggle()
             self.addButtonText = "-"
             return
         }
-        
+
         if self.name.count < 1 || self.address.count < 1 {
             self.addButtonText = "+"
             self.showForm.toggle()
             return
         }
-        
+
         let item = Item(cryptocurrency: self.cryptocurrency,
                         name: self.name,
                         address: self.address)
         self.itemsViewModel.addItem(item: item)
-        
+
         self.name = ""
         self.address = ""
     }

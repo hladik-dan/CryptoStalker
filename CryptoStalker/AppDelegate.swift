@@ -26,16 +26,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        
+
         statusBarButton = statusItem.button
         statusBarButton.title = "CryptoStalker"
         statusBarButton.target = self
         statusBarButton.action = #selector(showPopover)
-        
+
         preferencesViewModel = PreferencesViewModel()
-        
+
         itemsViewModel = ItemsViewModel(statusBarButton: statusBarButton)
-        
+
         popover = NSPopover()
         popover.contentViewController = NSHostingController(rootView: ContentView().environmentObject(preferencesViewModel).environmentObject(itemsViewModel))
         popover.behavior = .transient

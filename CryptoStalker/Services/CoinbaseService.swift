@@ -20,47 +20,47 @@ class CoinbaseService {
     private struct Response: Codable {
         let data: ResponseData
     }
-    
+
     private struct ResponseData: Codable {
         let currency: String
         let rates: [String:String]
     }
-    
+
     func getValue(balance: Double?, from: Cryptourrency, to: Currency, completion: @escaping (Double?) -> ()) {
         guard let balance = balance else {
             completion(nil)
             return
         }
-        
+
         let url = getUrl(cryptocurrency: from)
-        
+
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 completion(nil)
                 return
             }
-            
+
             guard let response = try? JSONDecoder().decode(Response.self, from: data) else {
                 completion(nil)
                 return
             }
-            
+
             guard let rateString = response.data.rates.first(where: { $0.key == to.rawValue })?.value else {
                 completion(nil)
                 return
             }
-            
+
             guard let rate = Double(rateString) else {
                 completion(nil)
                 return
             }
-            
+
             let value = balance * rate
-            
-            completion(value) 
+
+            completion(value)
         }.resume()
     }
-    
+
     private func getUrl(cryptocurrency: Cryptourrency) -> URL {
         return URL(string: "https://api.coinbase.com/v2/exchange-rates?currency=\(cryptocurrency)")!
     }

@@ -24,15 +24,15 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
         case name
         case value
     }
-    
+
     let id = UUID()
-    
+
     @Published private(set) var _cryptocurrency: Cryptourrency
     @Published private(set) var _name: String
     @Published private(set) var _address: String
     @Published private(set) var _balance: Double?
     @Published private(set) var _value: Double?
-    
+
     var cryptocurrency: String {
         switch self._cryptocurrency {
         case .BTC:
@@ -45,58 +45,58 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
             return "Stellar"
         }
     }
-    
+
     var name: String {
         return self._name
     }
-    
+
     var address: String {
         return self._address
     }
-    
+
     var value: String {
         return Helper.formatCurrency(value: self._value ?? 0)
     }
-    
+
     init(cryptocurrency: Cryptourrency, name: String, address: String) {
         self._cryptocurrency = cryptocurrency
         self._name = name
         self._address = address
     }
-    
+
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         self._address = try container.decode(String.self, forKey: .address)
         self._balance = try container.decode(Double?.self, forKey: .balance)
         self._cryptocurrency = try container.decode(Cryptourrency.self, forKey: .cryptocurrency)
         self._name = try container.decode(String.self, forKey: .name)
         self._value = try container.decode(Double?.self, forKey: .value)
     }
-    
+
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        
+
         try container.encode(self._address, forKey: .address)
         try container.encode(self._balance, forKey: .balance)
         try container.encode(self._cryptocurrency, forKey: .cryptocurrency)
         try container.encode(self._name, forKey: .name)
         try container.encode(self._value, forKey: .value)
     }
-    
+
     func update(dispatchGroup: DispatchGroup) {
         dispatchGroup.enter()
-        
+
         WalletInfoService().getBalance(cryptocurrency: self._cryptocurrency, address: self._address) { balance in
             DispatchQueue.main.async {
                 self._balance = balance
             }
-            
+
             CoinbaseService().getValue(balance: balance, from: self._cryptocurrency, to: Preferences.currency) { value in
                 DispatchQueue.main.async {
                     self._value = value
                 }
-                
+
                 dispatchGroup.leave()
             }
         }

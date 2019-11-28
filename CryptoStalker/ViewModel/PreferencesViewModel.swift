@@ -22,54 +22,54 @@ class PreferencesViewModel: ObservableObject {
             if self.currency == Preferences.currency {
                 return
             }
-            
+
             Preferences.currency = self.currency
-            
+
             guard let application = NSApplication.shared.delegate as? AppDelegate else {
                 return
             }
-            
+
             application.itemsViewModel.update()
         }
     }
-    
+
     @Published var updateFrequency: Int {
         didSet {
             if Double(self.updateFrequency) == Preferences.updateFrequency {
                 return
             }
-            
+
             Preferences.updateFrequency = Double(self.updateFrequency)
-            
+
             if let timer = self.updateFrequencyTimer {
                 timer.invalidate()
             }
-            
+
             self.updateFrequencyTimer = setUpdateFrequencyTimer()
         }
     }
-    
+
     private var updateFrequencyTimer: Timer?
-    
+
     init() {
         self.currency = Preferences.currency
         self.updateFrequency = Int(Preferences.updateFrequency)
         self.updateFrequencyTimer = self.setUpdateFrequencyTimer()
     }
-    
+
     private func setUpdateFrequencyTimer() -> Timer {
         let minute = 60.0
-        
+
         let timer = Timer.scheduledTimer(withTimeInterval: Preferences.updateFrequency * minute, repeats: true) { _ in
             guard let application = NSApplication.shared.delegate as? AppDelegate else {
                 return
             }
-            
+
             application.itemsViewModel.update()
         }
-        
+
         RunLoop.main.add(timer, forMode: .common)
-        
+
         return timer
     }
 }

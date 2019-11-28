@@ -18,7 +18,7 @@ import SwiftUI
 
 struct ItemView: View {
     @EnvironmentObject var itemsViewModel: ItemsViewModel
-    
+
     @ObservedObject var item: Item
 
     var body: some View {
@@ -33,20 +33,20 @@ struct ItemView: View {
 
             Text("\(item.value)")
                 .frame(width: 100)
-            
+
         }.contextMenu {
             Button("Copy address", action: {
                 NSPasteboard.general.clearContents()
                 NSPasteboard.general.setString(self.item.address, forType: .string)
             })
-            
+
             Divider()
-            
+
             Button("Move up", action: {
                 guard let index = self.itemsViewModel.items.firstIndex(of: self.item) else {
                     return
                 }
-                
+
                 if index == 0 {
                     return
                 }
@@ -57,7 +57,7 @@ struct ItemView: View {
                 guard let index = self.itemsViewModel.items.firstIndex(of: self.item) else {
                     return
                 }
-                
+
                 if index == (self.itemsViewModel.items.count - 1) {
                     return
                 }
@@ -78,7 +78,7 @@ struct ItemView_Previews: PreviewProvider {
     static func getItemsViewModel() -> ItemsViewModel {
         return ItemsViewModel(statusBarButton: NSStatusBarButton())
     }
-    
+
     static func getItem() -> Item {
         return Item(cryptocurrency: .BTC,
                     name: "Bitcoin",

@@ -18,20 +18,20 @@ import Foundation
 
 class Helper {
     static private let formater: NumberFormatter = NumberFormatter()
-    
+
     static private var currencyFormater: NumberFormatter {
         get {
             formater.numberStyle = .currency
             formater.locale = self.locale(currency: Preferences.currency)
-            
+
             return self.formater
         }
     }
-    
+
     static public func formatCurrency(value: Double) -> String {
         return self.currencyFormater.string(from: NSNumber(value: value))!
     }
-    
+
     static private func locale(currency: Currency) -> Locale {
         switch currency {
         case .CZK:

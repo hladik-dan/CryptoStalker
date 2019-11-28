@@ -19,18 +19,18 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var preferencesViewModel: PreferencesViewModel
     @EnvironmentObject var itemsViewModel: ItemsViewModel
-    
+
     @State var cryptocurrency: Cryptourrency = .BTC
     @State var name: String = ""
     @State var address: String = ""
-    
+
     @State var showSettings: Bool = false
 
     var body: some View {
         VStack {
             HStack {
                 AddItemView()
-                
+
                 Button("Settings",
                        action: {
                     self.showSettings.toggle()
@@ -57,10 +57,10 @@ struct ContentView: View {
                 }
             }
             .padding(.bottom, 5)
-            
+
             if self.showSettings {
                 Divider()
-                
+
                 SettingView()
                     .padding(.bottom, 10)
             }
@@ -71,10 +71,10 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static func getPreferencesViewModel() -> PreferencesViewModel {
         let preferencesViewModel = PreferencesViewModel()
-        
+
         return preferencesViewModel
     }
-    
+
     static func getItemsViewModel() -> ItemsViewModel {
         let item1 = Item(cryptocurrency: .BTC,
                          name: "Bitcoin",
@@ -85,7 +85,7 @@ struct ContentView_Previews: PreviewProvider {
         let item3 = Item(cryptocurrency: .LTC,
                          name: "Litecoin",
                          address: "Litecoin Address")
-        
+
         let itemsViewModel = ItemsViewModel(statusBarButton: NSStatusBarButton())
         itemsViewModel.items = [item1, item2, item3]
 

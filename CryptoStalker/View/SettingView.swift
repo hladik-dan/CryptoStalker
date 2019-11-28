@@ -18,13 +18,13 @@ import SwiftUI
 
 struct SettingView: View {
     @EnvironmentObject var preferencesViewModel: PreferencesViewModel
-    
+
     var body: some View {
         VStack {
             HStack {
                 Text("Currency")
                     .frame(minWidth: 0, maxWidth: 150, alignment: .leading)
-                
+
                 Picker("Currency",
                        selection: self.$preferencesViewModel.currency) {
                         Text("CZK").tag(Currency.CZK)
@@ -35,11 +35,11 @@ struct SettingView: View {
                 .labelsHidden()
                 .frame(width: 250)
             }
-            
+
             HStack {
                 Text("Update Frequency")
                     .frame(minWidth: 0, maxWidth: 150, alignment: .leading)
-                
+
                 Picker("UpdateFrequency",
                        selection: self.$preferencesViewModel.updateFrequency) {
                         Text("1 min").tag(1)
@@ -59,7 +59,7 @@ struct SettingView_Previews: PreviewProvider {
     static func getPreferencesViewModel() -> PreferencesViewModel {
         return PreferencesViewModel()
     }
-    
+
     static func getItem() -> Item {
         return Item(cryptocurrency: .BTC,
                     name: "Bitcoin",
