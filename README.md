@@ -2,7 +2,7 @@
 CryptoStalker can track balances of your wallets.
 
 Supported Cryptocurrencies
-- BTC, ETH, LTC, XLM
+- BTC, ETH, LTC, XLM, XRP
 
 ## Download
 CryptoStalker can be downloaded from [**Releases**](https://github.com/hladik-dan/CryptoStalker/releases) section.
@@ -21,6 +21,7 @@ CryptoStalker can be downloaded from [**Releases**](https://github.com/hladik-da
 Data for wallet balances are fetched from
 - https://blockchain.coinmarketcap.com/
 - https://horizon.stellar.org/
+- https://api.xrpscan.com/
 
 Data for exchanges rates are fetched from
 - https://api.coinbase.com/

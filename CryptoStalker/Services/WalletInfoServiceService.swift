@@ -30,6 +30,10 @@ class WalletInfoService {
         let asset_type: String
     }
 
+    private struct XrpScanResponse: Codable {
+        let xrpBalance: String
+    }
+
     func getBalance(cryptocurrency: Cryptourrency, address: String, completion: @escaping (Double?) -> ()) {
         let url = getUrl(cryptocurrency: cryptocurrency, address: address)
 
@@ -65,6 +69,12 @@ class WalletInfoService {
             }
 
             return response.balances.first(where: { $0.asset_type == "native" })?.balance
+        case .XRP:
+            guard let response = try? JSONDecoder().decode(XrpScanResponse.self, from: data) else {
+                return nil
+            }
+
+            return response.xrpBalance
         }
     }
 
@@ -92,6 +102,12 @@ class WalletInfoService {
             }
 
             return balance
+        case .XRP:
+            guard let balance = Double(balance) else {
+                return nil
+            }
+
+            return balance
         }
     }
 
@@ -101,6 +117,8 @@ class WalletInfoService {
             return URL(string: "https://blockchain.coinmarketcap.com/api/address?address=\(address)&symbol=\(cryptocurrency)")!
         case .XLM:
             return URL(string: "https://horizon.stellar.org/accounts/\(address)")!
+        case .XRP:
+            return URL(string: "https://api.xrpscan.com/api/v1/account/\(address)")!
         }
     }
 }

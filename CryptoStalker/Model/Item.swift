@@ -43,6 +43,8 @@ class Item: NSObject, Codable, Identifiable, ObservableObject {
             return "Litecoin"
         case .XLM:
             return "Stellar"
+        case .XRP:
+            return "XRP"
         }
     }
 

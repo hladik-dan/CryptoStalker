@@ -48,6 +48,10 @@ struct AddItemView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .tag(Cryptourrency.XLM)
+                    Image("XRP")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .tag(Cryptourrency.XRP)
                 }
                 .labelsHidden()
                 .frame(width: 50)

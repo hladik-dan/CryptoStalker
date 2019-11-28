@@ -19,4 +19,5 @@ enum Cryptourrency: String, Codable {
     case ETH
     case LTC
     case XLM
+    case XRP
 }
